@@ -1,0 +1,2 @@
+elasticsearch-fseventriver-plugin
+=================================
