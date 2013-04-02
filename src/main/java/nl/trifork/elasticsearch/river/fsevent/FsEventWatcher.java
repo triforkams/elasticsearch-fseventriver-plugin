@@ -45,7 +45,7 @@ public class FsEventWatcher implements Runnable {
 
                 // if the watched directory gets deleted, get out of run method
                 if (!watchKey.reset()) {
-                    logger.info("Deleting FsEventWatcher for deleted path {}.", rootPath);
+                    logger.info("Deleting FsEventWatcher for deleted path '{}'.", rootPath);
                     watchKey.cancel();
                     watchService.close();
                     break;

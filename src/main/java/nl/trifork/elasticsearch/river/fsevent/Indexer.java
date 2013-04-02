@@ -81,7 +81,7 @@ public class Indexer {
                     .endObject()
                 .endObject();
         } catch (IOException e) {
-            logger.info("Exception while trying to read file {}", file.getName(), e);
+            logger.info("Exception while trying to read file '{}'", file.getName());
             return null;
         }
     }

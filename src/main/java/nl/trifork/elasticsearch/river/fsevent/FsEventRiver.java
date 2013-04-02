@@ -39,7 +39,7 @@ public class FsEventRiver extends AbstractRiverComponent implements River {
 
     @Override
     public void start() {
-        logger.info("start() fs event watcher for {}", directoryDefinition.getName());
+        logger.info("start() fs event watcher for '{}'", directoryDefinition.getName());
 
         createIndexIfNotExisting();
 
@@ -49,7 +49,7 @@ public class FsEventRiver extends AbstractRiverComponent implements River {
 
     @Override
     public void close() {
-        logger.info("close() fs event watcher for {}", directoryDefinition.getName());
+        logger.info("close() fs event watcher for '{}'", directoryDefinition.getName());
 
         if (thread != null) {
             thread.interrupt();
@@ -78,10 +78,10 @@ public class FsEventRiver extends AbstractRiverComponent implements River {
 
     private void createIndexIfNotExisting() {
         String indexName = directoryDefinition.getIndexConfiguration().getIndexName();
-        logger.trace("Checking if index {} exists...", indexName);
+        logger.trace("Checking if index '{}' exists...", indexName);
 
         if (!client.admin().indices().prepareExists(indexName).execute().actionGet().exists()) {
-            logger.info("Index {} does not exist, creating it now.", indexName);
+            logger.info("Index '{}' does not exist, creating it now.", indexName);
 
             CreateIndexRequestBuilder createIndexRequest = client.admin().indices()
                     .prepareCreate(indexName);

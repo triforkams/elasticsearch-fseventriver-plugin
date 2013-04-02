@@ -46,7 +46,7 @@ public class EventProcessor {
         } else if (kind.equals(StandardWatchEventKinds.ENTRY_DELETE)) {
             processDeleteEntry((Path) event.context());
         } else {
-            logger.debug("Ignoring unknown event of type {}", kind.name());
+            logger.debug("Ignoring unknown event of type '{}'", kind.name());
         }
     }
 
@@ -57,6 +57,8 @@ public class EventProcessor {
 
         if(file.isFile()) {
             indexer.indexFile(file);
+        } else {
+            logger.debug("path '{}' is not a file, ignoring it", pathCreated);
         }
     }
 
@@ -67,6 +69,8 @@ public class EventProcessor {
 
         if(file.isFile()) {
             indexer.indexFile(file);
+        } else {
+            logger.debug("path '{}' is not a file, ignoring it", pathModified);
         }
     }
 
@@ -77,6 +81,8 @@ public class EventProcessor {
 
         if(file.isFile()) {
             indexer.removeFileFromIndex(file);
+        } else {
+            logger.debug("path '{}' is not a file, ignoring it", pathDeleted);
         }
     }
 }

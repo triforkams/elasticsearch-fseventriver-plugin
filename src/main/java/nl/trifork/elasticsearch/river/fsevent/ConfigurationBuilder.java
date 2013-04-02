@@ -22,7 +22,7 @@ public class ConfigurationBuilder {
     private static final String DEFAULT_URL = "/mnt/es";
 
     public static DirectoryDefinition build(RiverName riverName, RiverSettings riverSettings) {
-        assert(riverName != null && riverSettings != null);
+        logger.info("build configuration for '{}'", riverName.name());
 
         DirectoryDefinition definition = buildDirectoryDefinition(riverSettings.settings());
 
@@ -54,7 +54,7 @@ public class ConfigurationBuilder {
     }
 
     private static DirectoryDefinition generateDefaultDirectoryDefinition() {
-        logger.warn("You didn't define the fs_event river. Switching to defaults; using url : {}", DEFAULT_URL);
+        logger.warn("You didn't define the fs_event river. Switching to defaults; using url '{}'", DEFAULT_URL);
 
         return new DirectoryDefinition("default_directory", DEFAULT_URL);
     }
@@ -83,7 +83,7 @@ public class ConfigurationBuilder {
     }
 
     private static IndexConfiguration generateDefaultIndexConfiguration(String riverName) {
-        logger.warn("You didn't define the index. Switching to defaults; using name: {}", riverName);
+        logger.warn("You didn't define the index. Switching to defaults; using name '{}'", riverName);
 
         return new IndexConfiguration(riverName, DEFAULT_TYPE, DEFAULT_BULK_SIZE);
     }
