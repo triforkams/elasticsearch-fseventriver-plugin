@@ -73,3 +73,9 @@ Some ideas about extending this plug-in include:
 - allow the flush interval to be configured
 - allow 'includes' and/or 'excludes' to be configured in order to limit what will be indexed
 - make it configurable to watch a url recursively
+
+
+License
+-------
+
+This software is licensed under the Apache 2 license, see the LICENSE file for details.
