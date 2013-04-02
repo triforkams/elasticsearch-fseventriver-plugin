@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<assembly>
+    <id>bin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <unpack>false</unpack>
+            <outputDirectory>/</outputDirectory>
+            <useProjectArtifact>true</useProjectArtifact>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+            <excludes>
+                <exclude>org.elasticsearch:elasticsearch:jar</exclude>
+                <exclude>junit:junit</exclude>
+                <exclude>org.mockito:mockito</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>
